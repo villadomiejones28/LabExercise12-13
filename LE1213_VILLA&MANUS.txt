@@ -5,11 +5,10 @@ int main() {
     int n, i;
     char name[50], age[10], course[50];
 
-    // ------------------ WRITING TO FILE ------------------ //
     printf("Writing Student Database:\n");
     printf("How many students do you want to record? ");
     scanf("%d", &n);
-    getchar(); // consume newline left by scanf
+    getchar(); 
 
     fp = fopen("student_records.txt", "w");
     if (fp == NULL) {
@@ -29,7 +28,7 @@ int main() {
         printf("Enter Course: ");
         fgets(course, sizeof(course), stdin);
 
-        // Write to file
+
         fprintf(fp, "Student %d\n", i);
         fprintf(fp, "Name: %s", name);
         fprintf(fp, "Age: %s", age);
@@ -40,7 +39,6 @@ int main() {
     fclose(fp);
     printf("\nStudent database successfully saved to file.\n");
 
-    // ------------------ READING FROM FILE ------------------ //
     fp = fopen("student_records.txt", "r");
     if (fp == NULL) {
         printf("Error opening file for reading.\n");
@@ -57,3 +55,4 @@ int main() {
     fclose(fp);
     return 0;
 }
+
